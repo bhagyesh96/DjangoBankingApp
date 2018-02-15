@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fixed Deposits{% endblock %}</title>
+</head>
+<body>
+    {% block cb1 %}
+        <div><h2>Fixed Deposits</h2></div>
+        this line is for developer please ignore!!!!{{ query }}
+        {% for info in query %}
+            {{ info.fd_set.all }}
+            {% for xinfo in info.fd_set.all %}
+            <hr>
+            <ul>
+                <li><b>Name : {{  xinfo.dashboard}}</b></li>
+                <li>Loan number : {{  xinfo.Investment}}</li>
+                <li>Intrest Rate : {{  xinfo.IntrestRate}}%</li>
+                <li>Credit Allocated : {{  xinfo.Duration}}Yrs</li>
+                <li>Fund after maturity : {{  xinfo.Duration }}</li>
+            </ul>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block cb2 %}
+
+
+    {% endblock %}
+
+
+
+
+</body>
+</html>

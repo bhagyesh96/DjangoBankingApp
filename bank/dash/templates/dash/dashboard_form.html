@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+{% for field in form %}
+    <div >
+
+        <span >{{ field.errors }}</span>
+        <label  >{{ field.label_tag }}</label>
+        <div >{{ field }}</div>
+    </div>
+{% endfor %}
+</body>
+</html>

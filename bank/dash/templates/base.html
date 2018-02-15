@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title>{% block title %}    icici Bank{% endblock %}</title>
+    {% load staticfiles  %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</head>
+
+</head>
+<body>
+
+    <div class="container" style="background-color: #ff9022 ;">
+    <!--header-->
+        <div class="row" style="background-color: #ff6953;">
+            <div class="col-md-6">
+                <img style="max-height: 20%" class="img-fluid img-responsive" alt="Responsive image" src="../static/dash/icici-bank-logo.jpg" >
+
+            </div>
+
+        </div>
+
+    <!--navbar-->
+    <div class="row">
+        <div class="navbar-wrapper">
+
+
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html">Options</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{% block varv %}#{% endblock %}">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; {% block var %}Open A/C{% endblock %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'dash:logout' %}">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Logout
+                            </a>
+                        </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--contentbox1-->
+
+        <div class="row" style="margin-top: 2%;margin-bottom: 2%">
+            <div class="col-md-12" style="background-color:#67bfff;">
+                {% block cb1 %}
+                <a href="http://placeholder.com"><img src="http://via.placeholder.com/350x150"></a>
+                {% endblock %}
+            </div>
+        </div>
+        <!--contentbox1-->
+        <div class="row" style="margin-top: 2%;margin-bottom: 2%">
+            <div class="col-md-12" style="background-color:#67bfff;">
+                {% block cb2 %}
+
+                {% endblock %}
+            </div>
+
+        </div>
+        <!--contentbox1-->
+         <div class="row" style="margin-top: 2%;margin-bottom: 2%">
+            <div class="col-md-12" style="background-color:#67bfff;">
+                {% block cb3 %}
+
+                {% endblock %}
+            </div>
+         </div>
+    </div>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

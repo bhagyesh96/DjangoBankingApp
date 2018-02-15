@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>Title</title>
+
+</head>
+<body>
+{% block cb1 %}
+Hola
+    {{ data}}
+    <h1>hello to Django</h1>
+        {% for info in data %}
+            <li>
+                <ul><b>{{info.name }}</b>
+                </ul>
+            </li>
+        {% endfor %}
+{% endblock %}
+{% block cb2 %}
+<form method="GET"  action="/dash/search"  > <!--/dash means continue url otherwise it go out of app with dash-->
+
+
+
+    <label>Account no. : </label>
+    <input type="text" name="acno" >
+
+    <button type="submit">Submit</button>
+</form>
+
+<a href="{% url 'dash:logout' %}">Click Here to Logout</a>
+{% endblock %}
+</body>
+</html>

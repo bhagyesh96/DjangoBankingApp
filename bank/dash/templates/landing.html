@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome User</title>
+</head>
+<body>
+<!--navbar-->
+{% block var %}Update Info. {% endblock %}
+{% block varv %}{% url 'dash:update' pk=query.accountno %} {% endblock %}
+{{ query }}
+
+{% block cb1 %}
+
+    <h2 style="color:black ">Currently you are viewing detail of : </h2><h2 style="color:red"> {{ query.accountno }}</h2>
+
+            <br><br>
+
+            <div style="max-width: 30%; ">
+                <form class="form-group" method="post" action="{% url 'dash:addmoney' query.accountno %}" >
+                    {% csrf_token %}
+                    <label>Enter amount to Add : </label><input class="form-control"  type="number" name="money" /><br>
+                    <input class="form-control" type="submit" /><br>
+                </form>
+            </div>
+
+
+{% endblock %}
+{% block cb2 %}
+
+       <h2><b> <br> Name:       {{ query.name }}
+                <br>Join Date:  {{ query.Join_date }}
+               <br> Balance:    {{ query.balance }}</b></h2>
+                               test line {{query.accounts_set.all }} please ignore
+
+
+{% endblock %}
+{% block cb3 %}
+            <h1>other info</h1>
+            {% for xinfo in query.accounts_set.all %}
+                <br><b>dashboard FK : </b>{{  xinfo.dashboard }}
+                <br><b>InsurencePolicy:</b> {{  xinfo.InsurencePolicy }}
+                <br><a href="{% url 'mf:index' %}" class="btn btn-success">Mutual Funds</a>
+                <br><b>FixedDeposite :</b> {{  xinfo.FixedDeposite }}
+
+                <br><a href="{% url 'loan:index' %}" class="btn btn-success">loan</a>
+
+            {% endfor %}
+
+
+{% endblock %}
+
+
+</body>
+</html>

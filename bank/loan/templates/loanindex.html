@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Loan Detail{% endblock %}</title>
+</head>
+<body>
+    {% block cb1 %}
+        <div><h2>Home Loans</h2></div>
+        this line is for developer please ignore!!!!{{ query }}
+        {% for info in query %}
+            {% for xinfo in info.homeloan_set.all %}
+            <hr>
+            <ul>
+                <li><b>Name : {{  xinfo.dashboard}}</b></li>
+                <li>Loan number : {{  xinfo.LoanNO}}</li>
+                <li>Intrest Rate : {{  xinfo.IntrestRate}}%</li>
+                <li>Credit Allocated{{  xinfo.AllotedCredit}}</li>
+            </ul>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block cb2 %}
+        <div><h2>Car Loans</h2></div>
+        {% for info in query %}
+            {% for xinfo in info.carloan_set.all %}
+            <hr>
+            <ul>
+                <li><b>Name : {{  xinfo.dashboard}}</b></li>
+                <li>Loan number : {{  xinfo.LoanNO}}</li>
+                <li>Intrest Rate :{{  xinfo.IntrestRate}}</li>
+                <li>Credit Allocated : {{  xinfo.AllotedCredit}}</li>
+            </ul>
+            {% endfor %}
+        {% endfor %}
+
+
+    {% endblock %}
+
+
+
+
+</body>
+</html>

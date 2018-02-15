@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mutual Funds{% endblock %}</title>
+</head>
+<body>
+    {% block cb1 %}
+        <div><h2>Home Loans</h2></div>
+        this line is for developer please ignore!!!!{{ query }}
+        {% for info in query %}
+            {% for xinfo in info.mfinfo_set.all %}
+            <hr>
+            <ul>
+                <li><b>Name : {{  xinfo.dashboard}}</b></li>
+                <li>Scheme Name : {{  xinfo.SchemeName}}</li>
+                <li>Unit : {{  xinfo.Unit}}%</li>
+                <li>Price : {{  xinfo.Price}}</li>
+            </ul>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block cb2 %}
+
+
+    {% endblock %}
+
+
+
+
+</body>
+</html>
