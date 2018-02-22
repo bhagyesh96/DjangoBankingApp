@@ -1,4 +1,5 @@
 # DjangoBankingApp
+# Django2 illustration Added
 A basic Banking App illustrate User of REST API.
 See Bank->Bank->Views->url.py
 See Dash->View.py->class UserList(APIView):
