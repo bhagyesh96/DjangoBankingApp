@@ -25,7 +25,7 @@ Hola
 <form method="GET"  action="/dash/search"  > <!--/dash means continue url otherwise it go out of app with dash-->
 
 
-
+    {% csrf_token %}
     <label>Account no. : </label>
     <input type="text" name="acno" >
 
